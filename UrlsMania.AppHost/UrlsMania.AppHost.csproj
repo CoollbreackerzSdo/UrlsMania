@@ -1,7 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
-  <Sdk Name="Aspire.AppHost.Sdk" Version="9.0.0" />
-
+  <Sdk Name="Aspire.AppHost.Sdk" Version="9.0.0"/>
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net9.0</TargetFramework>
@@ -11,13 +9,11 @@
     <UserSecretsId>6a701eec-445b-4fbb-a2f3-9642b499e807</UserSecretsId>
     <GenerateImplicitNamespacesDeclarations>false</GenerateImplicitNamespacesDeclarations>
   </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.0.0" />
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.0.0"/>
+    <PackageReference Include="Aspire.Hosting.Redis" Version="9.0.0"/>
   </ItemGroup>
-
   <ItemGroup>
-    <ProjectReference Include="..\UrlsMania.ServiceDefaults\UrlsMania.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\UrlsMania.ServiceDefaults\UrlsMania.ServiceDefaults.csproj"/>
   </ItemGroup>
-
 </Project>
