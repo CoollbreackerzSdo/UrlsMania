@@ -9,6 +9,7 @@
     <Nullable>enable</Nullable>
     <IsAspireHost>true</IsAspireHost>
     <UserSecretsId>6a701eec-445b-4fbb-a2f3-9642b499e807</UserSecretsId>
+    <GenerateImplicitNamespacesDeclarations>false</GenerateImplicitNamespacesDeclarations>
   </PropertyGroup>
 
   <ItemGroup>
