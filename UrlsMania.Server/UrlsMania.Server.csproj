@@ -9,6 +9,7 @@
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0"/>
     <PackageReference Include="Aspire.StackExchange.Redis" Version="9.0.0"/>
     <PackageReference Include="Aspire.StackExchange.Redis.OutputCaching" Version="9.0.0"/>
+    <PackageReference Include="Scalar.AspNetCore" Version="1.2.49"/>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\UrlsMania.ServiceDefaults\UrlsMania.ServiceDefaults.csproj"/>
