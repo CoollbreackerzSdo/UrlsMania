@@ -1,0 +1,6 @@
+@UrlsMania.Server_HostAddress = http://localhost:5238
+
+GET {{UrlsMania.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
