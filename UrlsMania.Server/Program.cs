@@ -6,8 +6,6 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 builder.AddServiceDefaults();
-builder.AddRedisClient("redis");
-builder.AddRedisOutputCache("redis");
 
 var app = builder.Build();
 
@@ -26,7 +24,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseOutputCache();
 app.MapDefaultEndpoints();
 
 app.Run();
