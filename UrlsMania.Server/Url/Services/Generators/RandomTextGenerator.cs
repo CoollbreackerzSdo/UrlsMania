@@ -2,18 +2,20 @@ using System.Text;
 
 namespace UrlsMania.Server.Url.Services.Generators;
 
-public sealed class RandomTextGenerator() : ITextRandomGenerador
+public sealed class RandomUriCode() : ITextRandomGenerador
 {
     public string Generate()
     {
-        StringBuilder text = new();
-        ReadOnlySpan<char> template = Guid.CreateVersion7().ToString();
-        foreach (var index in template.Split('-'))
+        var code = new StringBuilder();
+
+        for (int i = 0; i < MaxLength; i++)
         {
-            text.Append(template[index]);
+            code.Append(char.ConvertFromUtf32(_machesGenerator.Next(97, 122)));
         }
-        return text.ToString();
+
+        return code.ToString();
     }
+    private readonly Random _machesGenerator = new();
     public int MaxLength
     {
         get => field;
