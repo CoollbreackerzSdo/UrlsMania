@@ -23,8 +23,8 @@ public static class ServiceDiscovery
         => services.AddTransient<ITextRandomGenerador, RandomUriCode>();
     public static IHostApplicationBuilder AddContexts(this IHostApplicationBuilder builder)
     {
-        // builder.AddNpgsqlDbContext<UriContext>("postgres", null, options => options.UseExceptionProcessor());
-        builder.Services.AddDbContext<UriContext>(options => options.UseNpgsql().UseExceptionProcessor());
+        builder.AddNpgsqlDbContext<UriContext>("postgres", null, options => options.UseExceptionProcessor());
+        // builder.Services.AddDbContext<UriContext>(options => options.UseNpgsql().UseExceptionProcessor());
         builder.Services.AddTransient<IUriRepository, UriRepository>();
         return builder;
     }
