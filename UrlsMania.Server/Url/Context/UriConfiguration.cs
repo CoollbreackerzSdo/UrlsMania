@@ -12,8 +12,7 @@ public sealed class UriConfiguration : BaseEntityConfiguration<ShortUrlEntity>
         base.Configure(builder);
 
         builder.Property(x => x.Code)
-            .HasColumnName("code")
-            .HasMaxLength(20);
+            .HasColumnName("code");
 
         builder.HasIndex(x => x.Code)
             .IsUnique();

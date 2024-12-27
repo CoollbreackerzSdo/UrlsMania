@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using UrlsMania.Server.Url.Context;
@@ -11,9 +12,11 @@ using UrlsMania.Server.Url.Context;
 namespace UrlsMania.Server.Migrations
 {
     [DbContext(typeof(UriContext))]
-    partial class UriContextModelSnapshot : ModelSnapshot
+    [Migration("20241217234554_Update_Key_Definition")]
+    partial class Update_Key_Definition
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
