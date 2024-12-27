@@ -10,7 +10,7 @@ public abstract class BaseEntityConfiguration<T> : IEntityTypeConfiguration<T>
     public virtual void Configure(EntityTypeBuilder<T> builder)
     {
         builder.Property(x => x.Key)
-            .HasConversion(x => x, x => x)
+            .HasConversion(x => x.Value, x => x)
             .HasColumnName("id");
             
         builder.HasKey(x => x.Key);

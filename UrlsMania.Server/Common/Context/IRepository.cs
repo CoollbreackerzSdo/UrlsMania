@@ -7,9 +7,11 @@ namespace UrlsMania.Server.Common.Context;
 public interface IRepository<T> : IDisposable
 {
     Task AddAsync(T model, CancellationToken token = default);
+    void Add(T model);
     Task<T?> FindAsync<TKey>(TKey key, CancellationToken token = default);
     Task<T?> SingleAsync(Expression<Func<T, bool>> expression, CancellationToken token = default);
     Task SaveChangesAsync(CancellationToken token = default);
+    void SaveChanges();
 }
 
 public abstract class Repository<T, TContext> : IRepository<T>
@@ -60,6 +62,8 @@ public abstract class Repository<T, TContext> : IRepository<T>
         Dispose(disposing: true);
         GC.SuppressFinalize(this);
     }
+    public void Add(T model) => _table.Add(model);
+    public void SaveChanges() => _context.SaveChanges();
     private readonly protected TContext _context;
     private readonly protected DbSet<T> _table;
     private bool _disposedValue;
