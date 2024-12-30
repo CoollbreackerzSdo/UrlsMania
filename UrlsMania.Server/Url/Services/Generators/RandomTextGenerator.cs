@@ -16,9 +16,5 @@ public sealed class RandomUriCode() : ITextRandomGenerador
         return code.ToString();
     }
     private readonly Random _machesGenerator = new();
-    public int MaxLength
-    {
-        get => field;
-        init => field = value > 1 ? value : 10;
-    }
+    public int MaxLength { get; init; } = 10;
 }

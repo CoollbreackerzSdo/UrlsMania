@@ -19,11 +19,24 @@ public static partial class Endpoints
             .ProducesProblem(StatusCodes.Status400BadRequest)
             .WithOpenApi();
 
+        endpoint.MapGet("{code:required}", GetRedirection)
+            .Produces<string>(StatusCodes.Status200OK)
+            .ProducesProblem(StatusCodes.Status400BadRequest)
+            .WithOpenApi();
+
         return endpoint;
     }
+
+    private static async Task<Results<RedirectHttpResult, BadRequest>> GetRedirection(string code, IHandler<string, string> handler, CancellationToken token)
+    {
+        var value = await handler.HandleAsync(code, token);
+        return value.IsOk() ? TypedResults.Redirect(value.Value) : TypedResults.BadRequest();
+    }
+
+
     public static async Task<Results<Ok<string>, BadRequest>> Create(ShortUrlRequest request, HttpRequest httpRequest, IHandler<(ShortUrlRequest Request, string UrlBase), string> handler, CancellationToken token)
     {
-        var handlerResult = await handler.HandleAsync((request, $"{httpRequest.Scheme}://{httpRequest.Host}"), token);
+        var handlerResult = await handler.HandleAsync((request, $"{httpRequest.Scheme}://{httpRequest.Host}/url"), token);
         return handlerResult.IsSuccess ? TypedResults.Ok(handlerResult.Value) : TypedResults.BadRequest();
     }
 }

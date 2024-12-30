@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace UrlsMania.Server.Migrations
 {
     /// <inheritdoc />
-    public partial class Update_Key_Definition : Migration
+    public partial class Init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,7 +18,7 @@ namespace UrlsMania.Server.Migrations
                     id = table.Column<Guid>(type: "uuid", nullable: false),
                     long_url = table.Column<string>(type: "text", nullable: false),
                     short_url = table.Column<string>(type: "text", nullable: false),
-                    code = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: false)
+                    code = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {

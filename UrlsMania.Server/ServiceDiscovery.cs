@@ -34,5 +34,6 @@ public static class ServiceDiscovery
         scope.ServiceProvider.GetRequiredService<UriContext>().Database.Migrate();
     }
     public static IServiceCollection AddHandler(this IServiceCollection services)
-        => services.AddTransient<IHandler<(ShortUrlRequest Request, string UrlBase), string>, CreateNewUriHandler>();
+        => services.AddTransient<IHandler<(ShortUrlRequest Request, string UrlBase), string>, CreateNewUriHandler>()
+            .AddTransient<IHandler<string, string>,ReadUriHandler>();
 }

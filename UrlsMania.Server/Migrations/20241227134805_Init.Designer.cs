@@ -12,8 +12,8 @@ using UrlsMania.Server.Url.Context;
 namespace UrlsMania.Server.Migrations
 {
     [DbContext(typeof(UriContext))]
-    [Migration("20241217234554_Update_Key_Definition")]
-    partial class Update_Key_Definition
+    [Migration("20241227134805_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,8 +33,7 @@ namespace UrlsMania.Server.Migrations
 
                     b.Property<string>("Code")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("character varying(20)")
+                        .HasColumnType("text")
                         .HasColumnName("code");
 
                     b.Property<string>("LongUrl")

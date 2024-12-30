@@ -30,8 +30,7 @@ namespace UrlsMania.Server.Migrations
 
                     b.Property<string>("Code")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("character varying(20)")
+                        .HasColumnType("text")
                         .HasColumnName("code");
 
                     b.Property<string>("LongUrl")

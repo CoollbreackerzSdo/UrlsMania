@@ -6,6 +6,7 @@ namespace UrlsMania.Server.Common.Context;
 
 public interface IRepository<T> : IDisposable
 {
+    bool Any(Expression<Func<T, bool>> expression);
     Task AddAsync(T model, CancellationToken token = default);
     void Add(T model);
     Task<T?> FindAsync<TKey>(TKey key, CancellationToken token = default);
@@ -64,6 +65,7 @@ public abstract class Repository<T, TContext> : IRepository<T>
     }
     public void Add(T model) => _table.Add(model);
     public void SaveChanges() => _context.SaveChanges();
+    public bool Any(Expression<Func<T, bool>> expression) => _table.Any(expression);
     private readonly protected TContext _context;
     private readonly protected DbSet<T> _table;
     private bool _disposedValue;
